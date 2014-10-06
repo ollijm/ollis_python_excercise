@@ -16,10 +16,16 @@ def start(interval, conf):
 
     cont = True
     while cont:
-
+        loop_started = time.time()
         for web_page in conf.web_pages:
             print web_page.url
             poller.update(web_page)
         print "Sleeping {0} seconds.".format(interval)
-        time.sleep(interval)
-        cont = False
+        _sleep_until_interval(loop_started, interval)
+
+
+def _sleep_until_interval(loop_started, interval):
+    loop_length = time.time() - loop_started
+    if loop_length < interval:
+        time.sleep(interval - loop_length)
+    pass
