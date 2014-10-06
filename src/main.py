@@ -7,7 +7,7 @@ import scheduler
 import logging
 
 
-logging.basicConfig(filename='request.log', level=logging.INFO)
+logging.basicConfig(filename='request.log')
 
 # Set default interval or validate value from command line args
 if len(sys.argv) == 1:

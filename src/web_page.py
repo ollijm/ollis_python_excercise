@@ -13,19 +13,22 @@ class WebPage:
         self._actual_content_type = None
         self._response_time = None
         self._last_checked = None
+        self._connection_state = None
 
     def __str__(self):
         s = "url='{0}' " \
-            "status_code='{1}' " \
-            "expected_status_code='{2}' " \
-            "content_type='{3}' " \
-            "expected_content_type='{4}' " \
-            "response_time='{5}' " \
-            "last_checked='{6}'".format(self.url, self.actual_status_code, self.expected_status_code,
-                                        self.actual_content_type, self.expected_content_type, self.response_time,
-                                        self.last_checked)
+            "connection_state='{1}' " \
+            "actual_status_code='{2}' " \
+            "expected_status_code='{3}' " \
+            "actual_content_type='{4}' " \
+            "expected_content_type='{5}' " \
+            "response_time='{6}' " \
+            "last_checked='{7}'".format(self.url, self.connection_state, self.actual_status_code,
+                                        self.expected_status_code, self.actual_content_type, self.expected_content_type,
+                                        self.response_time, self.last_checked)
         return s
 
+    # Getters
     @property
     def url(self):
         return self._url
@@ -55,6 +58,11 @@ class WebPage:
     def last_checked(self):
         return self._last_checked
 
+    @property
+    def connection_state(self):
+        return self._connection_state
+
+    # Setters
     @actual_status_code.setter
     def actual_status_code(self, value):
         self._actual_status_code = value
@@ -70,3 +78,7 @@ class WebPage:
     @last_checked.setter
     def last_checked(self, value):
         self._last_checked = value
+
+    @connection_state.setter
+    def connection_state(self, value):
+        self._connection_state = value

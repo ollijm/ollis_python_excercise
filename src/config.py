@@ -29,10 +29,14 @@ class Config:
         u1 = web_page.WebPage("http://www.kaleva.fi/", 200, "text/html")
         u2 = web_page.WebPage("http://www.iltasanomat.fi/rss/uutiset.xml", 200, "text/xml")
         u3 = web_page.WebPage("http://www.google.fi/", 200, "text/html")
+        u4 = web_page.WebPage("http://www.reallynotexistingdomainxyz.fi/", 200, "text/html")
+        u5 = web_page.WebPage("http://www.google.fi/not-existing-file.html", 200, "text/html")
 
         self.web_pages.append(u1)
         self.web_pages.append(u2)
         self.web_pages.append(u3)
+        self.web_pages.append(u4)
+        self.web_pages.append(u5)
 
 
 class ConfigTest(unittest.TestCase):
