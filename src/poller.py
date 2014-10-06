@@ -35,6 +35,7 @@ def update(page):
 
 
 def _read(url):
+    # TODO: configure timeouts etc
     return requests.get(url, )
 
 
@@ -46,12 +47,10 @@ def _set_stats(page, request, response_time):
 
 
 def _set_fail_stats(page, error):
-    print "Setting error on page " + page.url
     page.connection_state = error.__class__.__name__
     page.response_time = None
     page.actual_status_code = None
     page.actual_content_type = None
-    print "FINALLY: " + str(page)
 
 
 def _validate_results(page):

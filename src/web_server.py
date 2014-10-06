@@ -9,6 +9,10 @@ conf = None
 
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
+        """
+        Overwrite do_GET to serve web monitor's content
+        :return:
+        """
         # Construct a server response.
         self.send_response(200)
         self.send_header('Content-type', 'text/html; charset=utf-8')
@@ -18,6 +22,10 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
     @staticmethod
     def _html():
+        """
+        Generate HTML page for presenting the state of the web pages
+        :return:
+        """
         html = "<!DOCTYPE html><html><body><h1>Olli's Web Page Monitor</h1><ul>\n"
 
         for web_page in conf.web_pages:

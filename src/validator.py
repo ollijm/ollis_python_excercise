@@ -14,20 +14,13 @@ def is_stringinteger(s):
         return False
 
 
-def validate_result(s):
-    """
-    Check if given string contains an integer
-    :param s: String
-    :return: True if string contains integer, else False
-    """
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
-
 def validate_web_page(webpage):
+    """
+    Checks if web page passes content requirements. Web page must be connectible, and HTTP status code and Content-Type
+    header must as expected.
+    :param webpage:
+    :return:
+    """
     if webpage.connection_state is not "OK" or webpage.actual_status_code is not webpage.expected_status_code \
             or not webpage.actual_content_type.startswith(webpage.expected_content_type):
         return False

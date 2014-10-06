@@ -6,6 +6,9 @@ import web_page
 
 
 class Config:
+    """
+    Reads web page and their requirement list from file and exposes access to the WebPage object list
+    """
 
     def __init__(self, config_file):
         """
@@ -24,6 +27,10 @@ class Config:
         return self._web_pages
 
     def initialize(self):
+        """
+        Read configuration file into WebPage objects
+        :return:
+        """
         # TODO: Read from file
         u1 = web_page.WebPage("http://www.kaleva.fi/", 200, "text/html")
         u2 = web_page.WebPage("http://www.iltasanomat.fi/rss/uutiset.xml", 200, "text/xml")
@@ -38,17 +45,3 @@ class Config:
         self.web_pages.append(u4)
         self.web_pages.append(u5)
         self.web_pages.append(u6)
-
-
-class ConfigTest(unittest.TestCase):
-    """
-    Unit Test so to speak...
-    """
-    def test_instantiate(self):
-        config = Config("/path/to/file")
-        config.initialize()
-        for url_target in config.web_pages:
-            print str(url_target)
-
-if __name__ == '__main__':
-    unittest.main()

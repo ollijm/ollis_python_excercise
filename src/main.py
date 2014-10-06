@@ -1,3 +1,8 @@
+"""
+Main executable module of Olli's Web Monitor
+Usage: python src/main.py 30
+where 30 is the time interval during which all web pages are checked once
+"""
 __author__ = 'olli'
 
 import config
