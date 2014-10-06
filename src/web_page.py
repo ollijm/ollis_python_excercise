@@ -14,7 +14,6 @@ class WebPage:
         self._response_time = None
         self._last_checked = None
 
-
     def __str__(self):
         s = "url='{0}' " \
             "status_code='{1}' " \
@@ -56,3 +55,18 @@ class WebPage:
     def last_checked(self):
         return self._last_checked
 
+    @actual_status_code.setter
+    def actual_status_code(self, value):
+        self._actual_status_code = value
+
+    @actual_content_type.setter
+    def actual_content_type(self, value):
+        self._actual_content_type = value
+
+    @response_time.setter
+    def response_time(self, value):
+        self._response_time = value
+
+    @last_checked.setter
+    def last_checked(self, value):
+        self._last_checked = value

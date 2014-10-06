@@ -4,9 +4,10 @@ import config
 import validator
 import sys
 import scheduler
+import logging
 
-print str(sys.argv)
 
+logging.basicConfig(filename='request.log', level=logging.INFO)
 
 # Set default interval or validate value from command line args
 if len(sys.argv) == 1:
@@ -27,3 +28,6 @@ if interval < 10:
 conf = config.Config("/dummy/path")
 conf.initialize()
 scheduler.start(interval, conf)
+
+for w in conf.web_pages:
+    print "FULL: " + str(w)
