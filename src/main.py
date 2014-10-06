@@ -5,7 +5,8 @@ import validator
 import sys
 import scheduler
 import logging
-
+import web_server
+import thread
 
 logging.basicConfig(filename='request.log')
 
@@ -27,7 +28,10 @@ if interval < 10:
 
 conf = config.Config("/dummy/path")
 conf.initialize()
-scheduler.start(interval, conf)
 
-for w in conf.web_pages:
-    print "FULL: " + str(w)
+# Start the web server
+web_server.conf = conf
+thread.start_new_thread(web_server.start, ())
+
+# Start main polling loop
+scheduler.start(interval, conf)
