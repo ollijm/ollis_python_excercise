@@ -13,8 +13,7 @@ class Config:
         :return:
         """
         self._config_file = config_file
-        self.web_pages = []
-
+        self._web_pages = []
 
     @property
     def config_file(self):
@@ -31,12 +30,14 @@ class Config:
         u3 = web_page.WebPage("http://www.google.fi/", 200, "text/html")
         u4 = web_page.WebPage("http://www.reallynotexistingdomainxyz.fi/", 200, "text/html")
         u5 = web_page.WebPage("http://www.google.fi/not-existing-file.html", 200, "text/html")
+        u6 = web_page.WebPage("htp:///this.might.not.work.html", 200, "text/html")
 
         self.web_pages.append(u1)
         self.web_pages.append(u2)
         self.web_pages.append(u3)
         self.web_pages.append(u4)
         self.web_pages.append(u5)
+        self.web_pages.append(u6)
 
 
 class ConfigTest(unittest.TestCase):
