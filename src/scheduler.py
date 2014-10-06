@@ -6,6 +6,7 @@ import time
 
 def start(interval, conf):
     """
+    The main loop of the program fetches the list of URLs and sleeps until interval is passed
     :param interval: Interval in seconds
     :type interval: int
     :param conf: Config object
