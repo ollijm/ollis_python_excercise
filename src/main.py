@@ -1,7 +1,9 @@
 __author__ = 'olli'
 
+import config
 import validator
 import sys
+import scheduler
 
 print str(sys.argv)
 
@@ -22,4 +24,6 @@ if interval < 10:
     print "Setting poll interval to the minimum of 10 seconds."
     interval = 10
 
-print "Interval: " + str(interval)
+conf = config.Config("/dummy/path")
+conf.initialize()
+scheduler.start(interval, conf)

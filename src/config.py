@@ -13,15 +13,16 @@ class Config:
         :return:
         """
         self._config_file = config_file
-        self.url_targets = []
+        self.web_pages = []
+
 
     @property
     def config_file(self):
         return self._config_file
 
     @property
-    def url_targets(self):
-        return self._url_targets
+    def web_pages(self):
+        return self._web_pages
 
     def initialize(self):
         # TODO: Read from file
@@ -29,16 +30,19 @@ class Config:
         u2 = web_page.WebPage("http://www.iltasanomat.fi/rss/uutiset.xml", 200, "text/xml")
         u3 = web_page.WebPage("http://www.google.fi/", 200, "text/html")
 
-        self.url_targets.append(u1)
-        self.url_targets.append(u2)
-        self.url_targets.append(u3)
+        self.web_pages.append(u1)
+        self.web_pages.append(u2)
+        self.web_pages.append(u3)
 
 
 class ConfigTest(unittest.TestCase):
+    """
+    Unit Test so to speak...
+    """
     def test_instantiate(self):
         config = Config("/path/to/file")
         config.initialize()
-        for url_target in config.url_targets:
+        for url_target in config.web_pages:
             print str(url_target)
 
 if __name__ == '__main__':
