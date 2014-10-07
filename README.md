@@ -17,8 +17,9 @@ pip install requests
 ```
 git clone https://github.com/ollijm/ollis_python_excercise.git
 cd ollis_python_excercise
+
+# Start the monitor with 30 second poll interval
 python src/main.py 30
-# 30 is the poll interval in seconds
 ```
 
 Webserver available at http://localhost:8080/
