@@ -32,7 +32,9 @@ if interval < 10:
     print "Setting poll interval to the minimum of 10 seconds."
     interval = 10
 
-conf = config.Config("/dummy/path")
+# Initialize config object to be passed around
+# It contains access to our WebPage objects
+conf = config.Config()
 conf.initialize()
 
 # Start the web server

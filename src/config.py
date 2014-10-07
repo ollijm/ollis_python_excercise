@@ -7,17 +7,12 @@ class Config:
     Reads web page and their requirement list from urls.py and exposes access to the WebPage object list
     """
 
-    def __init__(self, config_file):
+    def __init__(self):
         """
         :param config_file:
         :return:
         """
-        self._config_file = config_file
         self._web_pages = []
-
-    @property
-    def config_file(self):
-        return self._config_file
 
     @property
     def web_pages(self):
