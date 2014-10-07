@@ -1,7 +1,6 @@
-__author__ = 'olli'
+import time
 
 import poller
-import time
 
 
 def start(interval, conf):

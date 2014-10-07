@@ -1,13 +1,16 @@
+"""
+Poller reads web pages from interet and updates their status
+"""
+
 import logging
-
-__author__ = 'olli'
-
 import datetime
 import time
 import requests
 import requests.exceptions
+
 import web_page
 import validator
+
 
 _logger = logging.getLogger('poller')
 _logger.setLevel(logging.INFO)
@@ -31,7 +34,7 @@ def update(page):
         # TODO: separate handling of different connection or HTTP parsing errors
         _set_fail_stats(page, e)
 
-    _validate_results(page)
+    _validate_results_and_log(page)
 
 
 def _read(url):
@@ -56,7 +59,7 @@ def _set_fail_stats(page, error):
     page.actual_content_type = None
 
 
-def _validate_results(page):
+def _validate_results_and_log(page):
     test_status = validator.web_page_status_as_string(page)
 
     # Finally log the poll event results to file

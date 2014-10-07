@@ -1,8 +1,8 @@
-__author__ = 'olli'
-
 import SimpleHTTPServer
 import SocketServer
+
 import validator
+
 
 conf = None
 

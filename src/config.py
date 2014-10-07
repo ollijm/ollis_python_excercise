@@ -1,13 +1,10 @@
-__author__ = 'olli'
-
-
 import urls
 import web_page
 
 
 class Config:
     """
-    Reads web page and their requirement list from file and exposes access to the WebPage object list
+    Reads web page and their requirement list from urls.py and exposes access to the WebPage object list
     """
 
     def __init__(self, config_file):

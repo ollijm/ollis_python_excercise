@@ -1,11 +1,9 @@
-__author__ = 'olli'
-
-
 class WebPage:
     """
     WebPage represents the current state of a web resource that we monitor.
     This class is mutable (and not thread-safe).
     """
+
     def __init__(self, url, expected_status_code, expected_content_type):
         self._url = url
         """HTTP status code integer that we expect"""

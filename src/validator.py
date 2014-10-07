@@ -1,6 +1,6 @@
-__author__ = 'olli'
-
-"""Place for all validation functions until they need more structured design"""
+"""
+Place for all validation functions until they need more structured design
+"""
 
 
 def is_stringinteger(s):
@@ -31,5 +31,5 @@ def web_page_status_as_string(page):
         return "FAIL: Expected HTTP status [{0}], got [{1}]".format(page.expected_status_code, page.actual_status_code)
     if not page.actual_content_type.startswith(page.expected_content_type):
         return "FAIL: Expected Content-Type to start with [{0}], got [{1}]".format(page.expected_content_type,
-                                                                             page.actual_content_type)
+                                                                                   page.actual_content_type)
     return "OK"

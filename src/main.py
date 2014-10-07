@@ -3,15 +3,16 @@ Main executable module of Olli's Web Monitor
 Usage: python src/main.py 30
 where 30 is the time interval during which all web pages are checked once
 """
-__author__ = 'olli'
+
+import sys
+import logging
+import thread
 
 import config
 import validator
-import sys
 import scheduler
-import logging
 import web_server
-import thread
+
 
 logging.basicConfig(filename='request.log')
 
