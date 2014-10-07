@@ -20,7 +20,7 @@ cd ollis_python_excercise
 python src/main.py 30
 ```
 
-> Webserver available at: localhost:8080
+> Webserver available at http://localhost:8080/
 
 For changing the web page requirement list, edit `src/urls.py`
 
