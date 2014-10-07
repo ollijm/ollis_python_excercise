@@ -40,14 +40,17 @@ def _read(url):
 
 
 def _set_stats(page, request, response_time):
-    page.connection_state = "OK"
+    page.read_state = "OK"
     page.response_time = response_time
     page.actual_status_code = request.status_code
-    page.actual_content_type = request.headers['Content-Type']
+    if request.headers['Content-Type']:
+        page.actual_content_type = request.headers['Content-Type']
+    else:
+        page.actual_content_type = None
 
 
 def _set_fail_stats(page, error):
-    page.connection_state = error.__class__.__name__
+    page.read_state = error.__class__.__name__
     page.response_time = None
     page.actual_status_code = None
     page.actual_content_type = None
