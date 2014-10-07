@@ -57,10 +57,7 @@ def _set_fail_stats(page, error):
 
 
 def _validate_results(page):
-    if validator.validate_web_page(page):
-        test_status = "OK"
-    else:
-        test_status = "FAIL"
+    test_status = validator.web_page_status_as_string(page)
 
     # Finally log the poll event results to file
     _logger.info("{0} {1}".format(test_status, str(page)))

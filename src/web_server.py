@@ -28,12 +28,9 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
         """
         html = "<!DOCTYPE html><html><body><h1>Olli's Web Page Monitor</h1><ul>\n"
 
-        for web_page in conf.web_pages:
-            if validator.validate_web_page(web_page):
-                status = "OK"
-            else:
-                status = "FAIL"
-            html += "<li><strong>{0}</strong>: {1}</li>\n".format(status, web_page)
+        for page in conf.web_pages:
+            status = validator.web_page_status_as_string(page)
+            html += "<li><strong>{0}</strong>: {1}</li>\n".format(status, page)
         html += "</ul></body></html>"
         return html
 
@@ -41,4 +38,8 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 def start():
     server = SocketServer.TCPServer(('0.0.0.0', 8080), MyHandler)
     print "Web server starts at http://localhost:8080/"
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print "Shutting down web server"
+        server.server_close()

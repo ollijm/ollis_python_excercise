@@ -2,6 +2,7 @@ __author__ = 'olli'
 
 """Place for all validation functions until they need more structured design"""
 
+
 def is_stringinteger(s):
     """
     Check if given string contains an integer
@@ -15,15 +16,20 @@ def is_stringinteger(s):
         return False
 
 
-def validate_web_page(webpage):
+def web_page_status_as_string(page):
     """
-    Checks if web page passes content requirements. Web page must be connectible, and HTTP status code and Content-Type
-    header must as expected.
-    :param webpage:
+    Return web page's content checks result as human readable string.
+    Web page must be connectible, and HTTP status code and Content-Type header must be as expected.
+    We only return the first error encountered, although in the case of read error there's
+    no need to further check for content errors.
+    :param page:
     :return:
     """
-    if webpage.read_state is not "OK" or webpage.actual_status_code is not webpage.expected_status_code \
-            or not webpage.actual_content_type.startswith(webpage.expected_content_type):
-        return False
-    else:
-        return True
+    if page.read_state is not "OK":
+        return "FAIL: Error trying to read the page [{0}]".format(page.read_state)
+    if page.actual_status_code != page.expected_status_code:
+        return "FAIL: Expected HTTP status [{0}], got [{1}]".format(page.expected_status_code, page.actual_status_code)
+    if not page.actual_content_type.startswith(page.expected_content_type):
+        return "FAIL: Expected Content-Type to start with [{0}], got [{1}]".format(page.expected_content_type,
+                                                                             page.actual_content_type)
+    return "OK"
