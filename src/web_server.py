@@ -40,5 +40,5 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 def start():
     server = SocketServer.TCPServer(('0.0.0.0', 8080), MyHandler)
-    print "WEB SERVER STARTS NOW"
+    print "Web server starts at http://localhost:8080/"
     server.serve_forever()

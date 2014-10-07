@@ -17,7 +17,6 @@ def start(interval, conf):
     while True:
         loop_started = time.time()
         for web_page in conf.web_pages:
-            print web_page.url
             poller.update(web_page)
         _sleep_until_interval(loop_started, interval)
 
