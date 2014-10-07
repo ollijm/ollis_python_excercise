@@ -14,7 +14,7 @@ import scheduler
 import web_server
 
 
-logging.basicConfig(filename='request.log')
+logging.basicConfig(format='%(asctime)s %(message)s', filename='request.log')
 
 # Set default interval or validate value from command line args
 if len(sys.argv) == 1:
