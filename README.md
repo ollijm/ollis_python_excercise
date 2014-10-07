@@ -26,6 +26,8 @@ Webserver available at http://localhost:8080/
 
 For changing the web page requirement list, edit `src/urls.py`
 
+Each request and the content test result is logged at `./request.log`
+
 ## About the software
 
 I decided to write this small piece in Python despite the fact that I am not very experienced with it. I hope this is to show my ability to grab things quickly if needed. Also I know dynamic languages are very good for this kind of prototyping. However, there are probably some not-so-great practices to be seen in my code if looked at by a more seasoned Python programmer.
