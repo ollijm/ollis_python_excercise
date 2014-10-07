@@ -12,7 +12,7 @@ import web_page
 import validator
 
 
-_logger = logging.getLogger('poller')
+_logger = logging.getLogger("poller")
 _logger.setLevel(logging.INFO)
 
 
@@ -30,7 +30,7 @@ def update(page):
         end_at = time.time()
         _set_stats(page, request, int(round((end_at - start_at) * 1000)))
     except requests.exceptions.RequestException, e:
-        # Catch any exception from 'requests' library
+        # Catch any exception from "requests" library
         # TODO: separate handling of different connection or HTTP parsing errors
         _set_fail_stats(page, e)
 
@@ -46,8 +46,8 @@ def _set_stats(page, request, response_time):
     page.read_state = "OK"
     page.response_time = response_time
     page.actual_status_code = request.status_code
-    if request.headers['Content-Type']:
-        page.actual_content_type = request.headers['Content-Type']
+    if request.headers["Content-Type"]:
+        page.actual_content_type = request.headers["Content-Type"]
     else:
         page.actual_content_type = None
 

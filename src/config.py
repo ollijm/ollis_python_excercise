@@ -24,6 +24,6 @@ class Config:
         :return:
         """
         for url_dict in urls.urls:
-            page = web_page.WebPage(url_dict['url'], url_dict['expected_status_code'],
-                                    url_dict['expected_content_type'])
+            page = web_page.WebPage(url_dict["url"], url_dict["expected_status_code"],
+                                    url_dict["expected_content_type"])
             self.web_pages.append(page)
