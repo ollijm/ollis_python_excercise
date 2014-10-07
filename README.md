@@ -24,7 +24,7 @@ python src/main.py 30
 
 Webserver available at http://localhost:8080/
 
-For changing the web page requirement list, edit `src/urls.py`
+For changing the web page requirement list, edit `./src/urls.py`
 
 Each request and the content test result is logged at `./request.log`
 
